@@ -1,0 +1,36 @@
+test_calcula_porcentaje_con_dos_decimales (test_comision.TestCalculadoraComision.test_calcula_porcentaje_con_dos_decimales) ... ok
+test_porcentaje_negativo_es_invalido (test_comision.TestCalculadoraComision.test_porcentaje_negativo_es_invalido) ... ok
+test_redondea_half_up (test_comision.TestCalculadoraComision.test_redondea_half_up) ... ok
+test_el_pago_registra_la_comision (test_servicio_pagos.TestComision.test_el_pago_registra_la_comision) ... ok
+test_envia_a_la_pasarela_monto_mas_comision (test_servicio_pagos.TestComision.test_envia_a_la_pasarela_monto_mas_comision) ... ok
+test_monto_cero_lanza_error_y_no_cobra (test_servicio_pagos.TestMontoInvalido.test_monto_cero_lanza_error_y_no_cobra) ... ok
+test_monto_negativo_lanza_error (test_servicio_pagos.TestMontoInvalido.test_monto_negativo_lanza_error) ... ok
+test_cobra_el_monto_del_pedido (test_servicio_pagos.TestPagoAprobado.test_cobra_el_monto_del_pedido) ... FAIL
+test_devuelve_pago_aprobado_con_referencia (test_servicio_pagos.TestPagoAprobado.test_devuelve_pago_aprobado_con_referencia) ... ok
+test_persiste_el_pago_una_sola_vez (test_servicio_pagos.TestPagoAprobado.test_persiste_el_pago_una_sola_vez) ... ok
+test_no_cobra_dos_veces_un_pedido_ya_aprobado (test_servicio_pagos.TestPagoDuplicado.test_no_cobra_dos_veces_un_pedido_ya_aprobado) ... ok
+test_un_pago_previo_rechazado_permite_reintentar (test_servicio_pagos.TestPagoDuplicado.test_un_pago_previo_rechazado_permite_reintentar) ... ok
+test_devuelve_pago_rechazado_con_motivo (test_servicio_pagos.TestPagoRechazado.test_devuelve_pago_rechazado_con_motivo) ... ok
+test_el_rechazo_tambien_se_persiste (test_servicio_pagos.TestPagoRechazado.test_el_rechazo_tambien_se_persiste) ... ok
+test_lanza_error_de_dominio (test_servicio_pagos.TestPasarelaCaida.test_lanza_error_de_dominio) ... ok
+test_registra_el_intento_como_error_de_pasarela (test_servicio_pagos.TestPasarelaCaida.test_registra_el_intento_como_error_de_pasarela) ... ok
+
+======================================================================
+FAIL: test_cobra_el_monto_del_pedido (test_servicio_pagos.TestPagoAprobado.test_cobra_el_monto_del_pedido)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/claude/tdd_pagos/tests/test_servicio_pagos.py", line 34, in test_cobra_el_monto_del_pedido
+    self.pasarela.cobrar.assert_called_once_with(Decimal("100.00"), "tok_123")
+  File "/usr/lib/python3.12/unittest/mock.py", line 956, in assert_called_once_with
+    return self.assert_called_with(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 944, in assert_called_with
+    raise AssertionError(_error_message()) from cause
+AssertionError: expected call not found.
+Expected: cobrar(Decimal('100.00'), 'tok_123')
+  Actual: cobrar(Decimal('102.50'), 'tok_123')
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.006s
+
+FAILED (failures=1)

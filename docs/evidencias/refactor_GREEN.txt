@@ -1,0 +1,16 @@
+test_monto_cero_lanza_error_y_no_cobra (test_servicio_pagos.TestMontoInvalido.test_monto_cero_lanza_error_y_no_cobra) ... ok
+test_monto_negativo_lanza_error (test_servicio_pagos.TestMontoInvalido.test_monto_negativo_lanza_error) ... ok
+test_cobra_el_monto_del_pedido (test_servicio_pagos.TestPagoAprobado.test_cobra_el_monto_del_pedido) ... ok
+test_devuelve_pago_aprobado_con_referencia (test_servicio_pagos.TestPagoAprobado.test_devuelve_pago_aprobado_con_referencia) ... ok
+test_persiste_el_pago_una_sola_vez (test_servicio_pagos.TestPagoAprobado.test_persiste_el_pago_una_sola_vez) ... ok
+test_no_cobra_dos_veces_un_pedido_ya_aprobado (test_servicio_pagos.TestPagoDuplicado.test_no_cobra_dos_veces_un_pedido_ya_aprobado) ... ok
+test_un_pago_previo_rechazado_permite_reintentar (test_servicio_pagos.TestPagoDuplicado.test_un_pago_previo_rechazado_permite_reintentar) ... ok
+test_devuelve_pago_rechazado_con_motivo (test_servicio_pagos.TestPagoRechazado.test_devuelve_pago_rechazado_con_motivo) ... ok
+test_el_rechazo_tambien_se_persiste (test_servicio_pagos.TestPagoRechazado.test_el_rechazo_tambien_se_persiste) ... ok
+test_lanza_error_de_dominio (test_servicio_pagos.TestPasarelaCaida.test_lanza_error_de_dominio) ... ok
+test_registra_el_intento_como_error_de_pasarela (test_servicio_pagos.TestPasarelaCaida.test_registra_el_intento_como_error_de_pasarela) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.004s
+
+OK

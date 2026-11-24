@@ -1,0 +1,58 @@
+test_comision (unittest.loader._FailedTest.test_comision) ... ERROR
+test_el_pago_registra_la_comision (test_servicio_pagos.TestComision.test_el_pago_registra_la_comision) ... ERROR
+test_envia_a_la_pasarela_monto_mas_comision (test_servicio_pagos.TestComision.test_envia_a_la_pasarela_monto_mas_comision) ... FAIL
+test_monto_cero_lanza_error_y_no_cobra (test_servicio_pagos.TestMontoInvalido.test_monto_cero_lanza_error_y_no_cobra) ... ok
+test_monto_negativo_lanza_error (test_servicio_pagos.TestMontoInvalido.test_monto_negativo_lanza_error) ... ok
+test_cobra_el_monto_del_pedido (test_servicio_pagos.TestPagoAprobado.test_cobra_el_monto_del_pedido) ... ok
+test_devuelve_pago_aprobado_con_referencia (test_servicio_pagos.TestPagoAprobado.test_devuelve_pago_aprobado_con_referencia) ... ok
+test_persiste_el_pago_una_sola_vez (test_servicio_pagos.TestPagoAprobado.test_persiste_el_pago_una_sola_vez) ... ok
+test_no_cobra_dos_veces_un_pedido_ya_aprobado (test_servicio_pagos.TestPagoDuplicado.test_no_cobra_dos_veces_un_pedido_ya_aprobado) ... ok
+test_un_pago_previo_rechazado_permite_reintentar (test_servicio_pagos.TestPagoDuplicado.test_un_pago_previo_rechazado_permite_reintentar) ... ok
+test_devuelve_pago_rechazado_con_motivo (test_servicio_pagos.TestPagoRechazado.test_devuelve_pago_rechazado_con_motivo) ... ok
+test_el_rechazo_tambien_se_persiste (test_servicio_pagos.TestPagoRechazado.test_el_rechazo_tambien_se_persiste) ... ok
+test_lanza_error_de_dominio (test_servicio_pagos.TestPasarelaCaida.test_lanza_error_de_dominio) ... ok
+test_registra_el_intento_como_error_de_pasarela (test_servicio_pagos.TestPasarelaCaida.test_registra_el_intento_como_error_de_pasarela) ... ok
+
+======================================================================
+ERROR: test_comision (unittest.loader._FailedTest.test_comision)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_comision
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/loader.py", line 394, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/loader.py", line 337, in _get_module_from_name
+    __import__(name)
+  File "/home/claude/tdd_pagos/tests/test_comision.py", line 4, in <module>
+    from pagos.comision import CalculadoraComision
+ModuleNotFoundError: No module named 'pagos.comision'
+
+
+======================================================================
+ERROR: test_el_pago_registra_la_comision (test_servicio_pagos.TestComision.test_el_pago_registra_la_comision)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/claude/tdd_pagos/tests/test_servicio_pagos.py", line 121, in test_el_pago_registra_la_comision
+    self.assertEqual(pago.comision, Decimal("2.50"))
+                     ^^^^^^^^^^^^^
+AttributeError: 'Pago' object has no attribute 'comision'
+
+======================================================================
+FAIL: test_envia_a_la_pasarela_monto_mas_comision (test_servicio_pagos.TestComision.test_envia_a_la_pasarela_monto_mas_comision)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/claude/tdd_pagos/tests/test_servicio_pagos.py", line 117, in test_envia_a_la_pasarela_monto_mas_comision
+    self.pasarela.cobrar.assert_called_once_with(Decimal("102.50"), "tok_123")
+  File "/usr/lib/python3.12/unittest/mock.py", line 956, in assert_called_once_with
+    return self.assert_called_with(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 944, in assert_called_with
+    raise AssertionError(_error_message()) from cause
+AssertionError: expected call not found.
+Expected: cobrar(Decimal('102.50'), 'tok_123')
+  Actual: cobrar(Decimal('100.00'), 'tok_123')
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.006s
+
+FAILED (failures=1, errors=2)

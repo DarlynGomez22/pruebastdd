@@ -1,0 +1,52 @@
+test_monto_cero_lanza_error_y_no_cobra (test_servicio_pagos.TestMontoInvalido.test_monto_cero_lanza_error_y_no_cobra) ... ok
+test_monto_negativo_lanza_error (test_servicio_pagos.TestMontoInvalido.test_monto_negativo_lanza_error) ... ok
+test_cobra_el_monto_del_pedido (test_servicio_pagos.TestPagoAprobado.test_cobra_el_monto_del_pedido) ... ok
+test_devuelve_pago_aprobado_con_referencia (test_servicio_pagos.TestPagoAprobado.test_devuelve_pago_aprobado_con_referencia) ... ok
+test_persiste_el_pago_una_sola_vez (test_servicio_pagos.TestPagoAprobado.test_persiste_el_pago_una_sola_vez) ... ok
+test_devuelve_pago_rechazado_con_motivo (test_servicio_pagos.TestPagoRechazado.test_devuelve_pago_rechazado_con_motivo) ... ok
+test_el_rechazo_tambien_se_persiste (test_servicio_pagos.TestPagoRechazado.test_el_rechazo_tambien_se_persiste) ... ok
+test_lanza_error_de_dominio (test_servicio_pagos.TestPasarelaCaida.test_lanza_error_de_dominio) ... ERROR
+test_registra_el_intento_como_error_de_pasarela (test_servicio_pagos.TestPasarelaCaida.test_registra_el_intento_como_error_de_pasarela) ... ERROR
+
+======================================================================
+ERROR: test_lanza_error_de_dominio (test_servicio_pagos.TestPasarelaCaida.test_lanza_error_de_dominio)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/claude/tdd_pagos/tests/test_servicio_pagos.py", line 81, in test_lanza_error_de_dominio
+    self.servicio.procesar_pago(self.pedido, "tok_123")
+  File "/home/claude/tdd_pagos/src/pagos/servicio.py", line 13, in procesar_pago
+    respuesta = self._pasarela.cobrar(pedido.monto, token_tarjeta)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1134, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1138, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1193, in _execute_mock_call
+    raise effect
+ConnectionError: timeout
+
+======================================================================
+ERROR: test_registra_el_intento_como_error_de_pasarela (test_servicio_pagos.TestPasarelaCaida.test_registra_el_intento_como_error_de_pasarela)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/claude/tdd_pagos/tests/test_servicio_pagos.py", line 85, in test_registra_el_intento_como_error_de_pasarela
+    self.servicio.procesar_pago(self.pedido, "tok_123")
+  File "/home/claude/tdd_pagos/src/pagos/servicio.py", line 13, in procesar_pago
+    respuesta = self._pasarela.cobrar(pedido.monto, token_tarjeta)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1134, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1138, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1193, in _execute_mock_call
+    raise effect
+ConnectionError: timeout
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.006s
+
+FAILED (errors=2)

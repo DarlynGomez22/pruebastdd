@@ -1,0 +1,8 @@
+test_cobra_el_monto_del_pedido (test_servicio_pagos.TestPagoAprobado.test_cobra_el_monto_del_pedido) ... ok
+test_devuelve_pago_aprobado_con_referencia (test_servicio_pagos.TestPagoAprobado.test_devuelve_pago_aprobado_con_referencia) ... ok
+test_persiste_el_pago_una_sola_vez (test_servicio_pagos.TestPagoAprobado.test_persiste_el_pago_una_sola_vez) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+OK
