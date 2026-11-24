@@ -93,5 +93,5 @@ OK
 - Limitación: no hay tests de integración contra una pasarela/BD reales (fuera del alcance de la actividad; irían en una capa separada).
 
 ## 8. Capturas (Green bar)
-
-_Insertar aquí capturas de pantalla de su propia ejecución: `docs/evidencias/` contiene la salida textual de cada fase._
+![Barra verde](green.png)
+![Fase roja](red.png)
